@@ -1,0 +1,4 @@
+Twisted
+pyOpenSSL
+chardet
+beautifulsoup >= 3.1

@@ -2,4 +2,5 @@ Twisted
 pyOpenSSL
 chardet
 pyzmq
+txzmq
 beautifulsoup >= 3.1

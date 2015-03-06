@@ -1,5 +1,5 @@
 Twisted
 pyOpenSSL
 chardet
-zmq
+pyzmq
 beautifulsoup >= 3.1

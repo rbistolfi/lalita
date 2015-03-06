@@ -37,7 +37,7 @@ setup(
     # dependencies
     requires = [
         'twisted',
-        'beautifulsoup >= 3.1',
+        'beautifulsoup (>= 3.1)',
         'chardet',
     ],
 )

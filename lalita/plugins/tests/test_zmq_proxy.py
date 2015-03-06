@@ -13,13 +13,15 @@ from lalita import events
 from lalita.core.dispatcher import USER_POS, CHANNEL_POS
 
 from .helper import PluginTest
-from lalita.plugins.zmq_proxy import EVENT_MAP, PluginProcess
 
 try:
     import zmq, txzmq
     zmq_available = True
 except ImportError:
     zmq_available = False
+    PluginProcess = type("PluginProcess", (), {})
+else:
+    from lalita.plugins.zmq_proxy import EVENT_MAP, PluginProcess
 
 
 class TestZMQPlugin(TwistedTestCase, PluginTest):
@@ -104,6 +106,9 @@ class TestZMQPlugin(TwistedTestCase, PluginTest):
 
 class TestPluginProcess(TwistedTestCase, PluginTest):
     """Tests for PluginProcess."""
+
+    if not zmq_available:
+        skip = "pyzmq and txzmq required."
 
     class TestPlugin(PluginProcess):
         def __init__(self, addr1, addr2, called, config=None):
